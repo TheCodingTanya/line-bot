@@ -37,12 +37,16 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage) # 上方功能被觸發後緊接著處理這部分function
 def handle_message(event):
     msg = event.message.text
-    r = '很抱歉 您說什麼?'
+    r = '很抱歉 您說什麼'
 
-    if msg == 'hi':
-        r = 'hi'
-    elif msg == '你吃飯了嗎?':
+    if msg in ['hi', 'Hi']:
+        r = '嗨'
+    elif msg == '你吃飯了嗎':
         r = '還沒'
+    elif msg == '你是誰':
+        r = '我是機器人'
+    elif '訂位' in msg:
+        r = '您想訂位是嗎'
 
     line_bot_api.reply_message(
         event.reply_token,       # token 權杖:回復訊息
