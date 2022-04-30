@@ -59,7 +59,9 @@ def handle_message(event):
     elif '訂位' in msg:
         r = '您想訂位是嗎'
     
-
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=r))
 
 
 if __name__ == "__main__":
